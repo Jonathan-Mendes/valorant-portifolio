@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
 import { ValorantAgent } from "@/types/valorant";
 import { makeAgentGradient } from "@/lib/gradient";
 
@@ -11,14 +10,33 @@ type Props = {
   agent: ValorantAgent;
 };
 
+const roleConfig: Record<string, { icon: string }> = {
+  Sentinel: {
+    icon: "/icons/sentinel.svg",
+  },
+  Duelist: {
+    icon: "/icons/duelist.svg",
+  },
+  Initiator: {
+    icon: "/icons/initiator.svg",
+  },
+  Controller: {
+    icon: "/icons/controller.svg",
+  },
+};
+
 export default function AgentHero({ agent }: Props) {
   const gradient = makeAgentGradient(agent.backgroundGradientColors);
+  const roleName = agent.role?.displayName;
+  const role = roleName ? roleConfig[roleName] : null;
 
   const portrait =
     agent.bustPortrait?.trim() ||
     agent.fullPortrait?.trim() ||
     agent.displayIcon?.trim() ||
     "";
+
+  console.log(agent);
 
   return (
     <main
@@ -30,33 +48,49 @@ export default function AgentHero({ agent }: Props) {
       }}
     >
       <div className="mx-auto max-w-6xl px-6 py-8">
-        <Link href="/" className="text-white/70 hover:text-white">
-          ← Voltar
-        </Link>
+        <motion.div
+          initial={{ x: -24 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="order-2 md:order-1"
+        >
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10 cursor-pointer"
+          >
+            Voltar
+          </Link>
+        </motion.div>
 
-        <div className="mt-8 grid items-center gap-10 md:grid-cols-2">
-          {/* TEXTO */}
+        <div className="mt-8 grid gap-10 md:grid-cols-2 items-stretch">
           <motion.div
             initial={{ x: -24 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="order-2 md:order-1"
+            className="order-1 md:order-2 h-full"
           >
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10">
-              <span className="h-2 w-2 rounded-full bg-white/60" />
-              {agent.role?.displayName ?? "Sem role"}
-            </div>
+              {role ? (
+                <Image
+                  src={role.icon}
+                  alt={roleName || ""}
+                  width={16}
+                  height={16}
+                />
+              ) : (
+                <span className="h-2 w-2 rounded-full bg-white/60" />
+              )}
 
+              {roleName ?? "Sem role"}
+            </div>
             <h1 className="mt-4 text-4xl font-bold tracking-tight">
               {agent.displayName}
             </h1>
-
             <p className="mt-4 max-w-prose text-sm leading-relaxed text-white/75">
               {agent.description}
             </p>
-
             <div className="mt-8">
-              <h2 className="text-lg font-semibold">Habilidades</h2>
+              <h2 className="text-lg font-semibold">Abilities</h2>
 
               <ul className="mt-4 space-y-3">
                 {agent.abilities.map((ab, i) => (
@@ -67,7 +101,7 @@ export default function AgentHero({ agent }: Props) {
                     transition={{ delay: 0.08 + i * 0.05, duration: 0.28 }}
                     className="rounded-2xl bg-black/35 p-4 ring-1 ring-white/10"
                   >
-                    <div className="flex gap-3">
+                    <div className="flex items-center gap-3">
                       {ab.displayIcon ? (
                         <Image
                           src={ab.displayIcon}
@@ -76,7 +110,7 @@ export default function AgentHero({ agent }: Props) {
                           height={32}
                         />
                       ) : (
-                        <div className="h-8 w-8 rounded bg-white/10" />
+                        <></>
                       )}
 
                       <div>
@@ -94,10 +128,11 @@ export default function AgentHero({ agent }: Props) {
             </div>
           </motion.div>
 
-          {/* IMAGEM */}
           <div className="order-1 md:order-2">
-            <div className="relative overflow-hidden rounded-3xl bg-black/30 ring-1 ring-white/10">
-              {/* glow atrás */}
+            <div
+              className="relative h-full overflow-hidden rounded-3xl bg-black/30 ring-1 ring-white/10 flex flex-col"
+              style={{ backgroundImage: gradient }}
+            >
               <div
                 className="pointer-events-none absolute -inset-10 -z-10 opacity-40 blur-3xl"
                 style={{ backgroundImage: gradient }}
@@ -107,7 +142,7 @@ export default function AgentHero({ agent }: Props) {
                 initial={{ y: 40 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut" }}
-                className="flex items-center justify-center p-6"
+                className="flex-1 flex items-center justify-center p-6"
               >
                 {portrait ? (
                   <Image
@@ -125,13 +160,6 @@ export default function AgentHero({ agent }: Props) {
                   </div>
                 )}
               </motion.div>
-
-              <div className="border-t border-white/10 bg-black/40 px-5 py-4">
-                <p className="text-xs text-white/60">Developer Name</p>
-                <p className="text-sm font-medium">
-                  {agent.developerName ?? "—"}
-                </p>
-              </div>
             </div>
           </div>
         </div>
