@@ -13,8 +13,11 @@ export default async function AgentPage({
   if (!agent) {
     return (
       <main className="min-h-screen bg-black p-6 text-white">
-        <Link href="/" className="text-white/70 hover:text-white">
-          ← Voltar
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10 cursor-pointer"
+        >
+          Voltar
         </Link>
         <h1 className="mt-6 text-2xl font-bold">Agente não encontrado</h1>
       </main>
