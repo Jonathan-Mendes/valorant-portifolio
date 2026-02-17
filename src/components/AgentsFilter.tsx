@@ -123,7 +123,7 @@ export default function AgentsFilter({ agents }: { agents: ValorantAgent[] }) {
   );
 }
 
-/** Desktop */
+/* Desktop */
 function FilterBar({
   query,
   onQueryChange,
