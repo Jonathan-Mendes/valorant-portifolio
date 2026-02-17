@@ -58,7 +58,13 @@ export default function AgentHero({ agent }: Props) {
             href="/"
             className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10 cursor-pointer"
           >
-            Voltar
+            <Image
+              src="/icons/back.svg"
+              alt="back to page"
+              width={12}
+              height={12}
+            />
+            Back
           </Link>
         </motion.div>
 
@@ -83,7 +89,7 @@ export default function AgentHero({ agent }: Props) {
 
               {roleName ?? "Sem role"}
             </div>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight">
+            <h1 className="mt-4 text-4xl font-bold tracking-tight font-valorant">
               {agent.displayName}
             </h1>
             <p className="mt-4 max-w-prose text-sm leading-relaxed text-white/75">

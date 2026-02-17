@@ -17,7 +17,7 @@ export default async function AgentPage({
           href="/"
           className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10 cursor-pointer"
         >
-          Voltar
+          Back
         </Link>
         <h1 className="mt-6 text-2xl font-bold">Agente não encontrado</h1>
       </main>
