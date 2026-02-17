@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎮 Valorant Agents – Next.js Portfolio
 
-## Getting Started
+Aplicação web desenvolvida com **Next.js** que consome a API pública do Valorant para exibir agentes, suas habilidades e detalhes em uma interface moderna e animada.
 
-First, run the development server:
+---
+
+## 🚀 Tecnologias utilizadas
+
+- ⚡ **Next.js (App Router)**
+- 🎨 **Tailwind CSS**
+- 🎞 **Framer Motion**
+- 🧠 **TypeScript**
+- 🌐 **Valorant API**
+
+---
+
+## ✨ Funcionalidades
+
+- 🔍 Listagem de agentes do Valorant
+- 🎮 Página detalhada de cada agente
+- 🎨 Gradientes dinâmicos baseados no agente
+- ⚡ Animações suaves com Framer Motion
+- 📱 Layout responsivo
+- 🧩 Componentização reutilizável
+
+---
+
+## 📦 Como rodar o projeto
 
 ```bash
+# Clone o repositório
+git clone https://github.com/Jonathan-Mendes/valorant-portifolio.git
+
+# Acesse a pasta
+cd valorant-portfolio
+
+# Instale as dependências
+npm install
+
+# Rode o projeto
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 API utilizada
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- https://dash.valorant-api.com/
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧠 Aprendizados
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Esse projeto foi desenvolvido com foco em:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Estruturação com App Router
+- Separação entre Server e Client Components
+- Consumo de APIs externas
+- Criação de interfaces modernas com Tailwind
+- Uso de animações performáticas com Framer Motion
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Possíveis melhorias
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 🌍 Internacionalização (i18n)
+- ⭐ Favoritar agentes
+- 🔎 Filtros por role (Duelist, Sentinel, etc.)
+- 📊 Dashboard com estatísticas
+- 💾 Cache de dados para performance
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Jhony** 🚀
+Front-end Developer
+
+---
+
+## 📄 Licença
+
+Este projeto é apenas para fins de estudo e portfólio.
