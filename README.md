@@ -73,7 +73,7 @@ Esse projeto foi desenvolvido com foco em:
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **Jhony** 🚀
+Desenvolvido por **Jonathan Mendes** 🚀
 Front-end Developer
 
 ---
