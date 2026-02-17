@@ -1,5 +1,5 @@
 import { getAgents } from "@/lib/api";
-import AgentCard from "@/components/AgentCard";
+import AgentsFilter from "@/components/AgentsFilter";
 
 export default async function Page() {
   const agents = await getAgents();
@@ -10,11 +10,7 @@ export default async function Page() {
         Valorant Agents
       </h1>
 
-      <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {agents.map((agent) => (
-          <AgentCard key={agent.uuid} agent={agent} />
-        ))}
-      </ul>
+      <AgentsFilter agents={agents} />
     </main>
   );
 }
