@@ -29,6 +29,7 @@ export default function AgentHero({ agent }: Props) {
   const gradient = makeAgentGradient(agent.backgroundGradientColors);
   const roleName = agent.role?.displayName;
   const role = roleName ? roleConfig[roleName] : null;
+  const lettersBg = agent.background?.trim?.() ? agent.background.trim() : "";
 
   const portrait =
     agent.bustPortrait?.trim() ||
@@ -134,21 +135,33 @@ export default function AgentHero({ agent }: Props) {
             </div>
           </motion.div>
 
-          <div className="order-1 md:order-2">
-            <div
-              className="relative h-full overflow-hidden rounded-3xl bg-black/30 ring-1 ring-white/10 flex flex-col"
-              style={{ backgroundImage: gradient }}
-            >
+          <div className="order-1 md:order-2 h-full">
+            <div className="relative h-full overflow-hidden rounded-3xl bg-black/30 ring-1 ring-white/10">
               <div
-                className="pointer-events-none absolute -inset-10 -z-10 opacity-40 blur-3xl"
+                className="absolute inset-0"
                 style={{ backgroundImage: gradient }}
               />
 
+              {lettersBg ? (
+                <Image
+                  src={lettersBg}
+                  alt={`${agent.displayName} letters`}
+                  fill
+                  className="object-cover opacity-20"
+                  unoptimized
+                  priority
+                />
+              ) : (
+                <></>
+              )}
+
+              <div className="absolute inset-0 bg-black/30" />
+
               <motion.div
-                initial={{ y: 40 }}
-                animate={{ y: 0 }}
+                initial={{ y: 40, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.55, ease: "easeOut" }}
-                className="flex-1 flex items-center justify-center p-6"
+                className="relative z-10 flex h-full items-center justify-center p-6"
               >
                 {portrait ? (
                   <Image
@@ -156,13 +169,13 @@ export default function AgentHero({ agent }: Props) {
                     alt={agent.displayName}
                     width={520}
                     height={820}
-                    priority
-                    className="h-[560px] w-auto object-contain"
+                    className="h-[560px] w-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.55)]"
                     unoptimized
+                    priority
                   />
                 ) : (
                   <div className="flex h-[560px] items-center justify-center text-white/70">
-                    Sem imagem disponível
+                    No image available
                   </div>
                 )}
               </motion.div>

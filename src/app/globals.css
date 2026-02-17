@@ -34,11 +34,8 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 16px;
-
   background: rgba(255, 255, 255, 0.04);
-
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -47,17 +44,21 @@ body {
 .v-card-bg {
   position: absolute;
   inset: 0;
-
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .v-card:hover {
   transform: translateY(-4px);
-
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
 }
 
 .v-card:hover .v-card-bg {
   opacity: 1;
+}
+
+.v-card:hover p {
+  color: rgb(110, 110, 110);
+  font-size: 15px;
+  transition: transform 0.25s ease;
 }

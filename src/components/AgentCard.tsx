@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import { ValorantAgent } from "@/types/valorant";
 import { makeAgentGradient } from "@/lib/gradient";
 
@@ -30,7 +30,7 @@ export default function AgentCard({ agent }: { agent: ValorantAgent }) {
             />
           </div>
 
-          <p className="mt-2 text-center text-sm font-semibold">
+          <p className="mt-2 text-center text-sm font-semibold text-up uppercase">
             {agent.displayName}
           </p>
         </div>
