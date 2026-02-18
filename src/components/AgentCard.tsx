@@ -21,7 +21,7 @@ export default function AgentCard({ agent }: { agent: ValorantAgent }) {
         <div className="v-card-bg" style={{ backgroundImage: gradient }} />
 
         <div className="relative z-10">
-          <div className="relative mx-auto h-[180px] w-[180px]">
+          <div className="relative mx-auto h-[140px] w-[140px] md:h-[180px] md:w-[180px]">
             <Image
               src={agent.displayIcon}
               alt={agent.displayName}
